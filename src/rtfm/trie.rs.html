@@ -39,7 +39,7 @@
 <a href=#39 id=39 data-nosnippet>39</a>    </span><span class="kw">pub fn </span>insert(<span class="kw-2">&amp;mut </span><span class="self">self</span>, word: <span class="kw-2">&amp;</span>str) {
 <a href=#40 id=40 data-nosnippet>40</a>        <span class="kw">let </span><span class="kw-2">mut </span>node = <span class="kw-2">&amp;mut </span><span class="self">self</span>.root;
 <a href=#41 id=41 data-nosnippet>41</a>        <span class="kw">for </span>c <span class="kw">in </span>word.chars() {
-<a href=#42 id=42 data-nosnippet>42</a>            node = node.children.entry(c).or_insert_with(TrieNode::new);
+<a href=#42 id=42 data-nosnippet>42</a>            node = node.children.entry(c).or_default();
 <a href=#43 id=43 data-nosnippet>43</a>        }
 <a href=#44 id=44 data-nosnippet>44</a>        node.is_word = <span class="bool-val">true</span>;
 <a href=#45 id=45 data-nosnippet>45</a>    }
