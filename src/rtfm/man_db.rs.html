@@ -122,7 +122,7 @@
 <a href=#122 id=122 data-nosnippet>122</a>        <span class="kw">let </span>output_str = String::from_utf8_lossy(<span class="kw-2">&amp;</span>output.stdout);
 <a href=#123 id=123 data-nosnippet>123</a>        <span class="kw">let </span><span class="kw-2">mut </span>man_map = HashMap::new();
 <a href=#124 id=124 data-nosnippet>124</a>        <span class="kw">let </span><span class="kw-2">mut </span>commands = Vec::new();
-<a href=#125 id=125 data-nosnippet>125</a>        <span class="kw">let </span>re = Regex::new(<span class="string">r"\((\d)\)"</span>).unwrap();
+<a href=#125 id=125 data-nosnippet>125</a>        <span class="kw">let </span>re = Regex::new(<span class="string">r"\((\d)\)"</span>)<span class="question-mark">?</span>;
 <a href=#126 id=126 data-nosnippet>126</a>
 <a href=#127 id=127 data-nosnippet>127</a>        <span class="kw">for </span>line <span class="kw">in </span>output_str.lines() {
 <a href=#128 id=128 data-nosnippet>128</a>            <span class="kw">if let </span><span class="prelude-val">Some</span>((name, desc)) = line.split_once(<span class="string">" - "</span>) {
