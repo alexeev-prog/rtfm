@@ -9,7 +9,6 @@ on:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
   pull_request:
-{% raw  %}
 jobs:
   audit:
     runs-on: ubuntu-latest
