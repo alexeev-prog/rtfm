@@ -206,6 +206,10 @@ rtfm --section 3 getman printf
 - Use `clippy` and `rustfmt` for code quality
 - Document public APIs with examples
 
+## Plans
+
+ - [ ] fix low speed which switch from `man` to `tldr` mode.
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
