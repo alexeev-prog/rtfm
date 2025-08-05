@@ -1,3 +1,9 @@
+commit 9cc2858ec868e3612a30547fa98d7cc83fa6e3c2
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Fri Jul 25 09:44:58 2025 +0700
+
+    remove broken workflow
+
 commit edf46e836fa46e045c64cd993e74eccf3e926961
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>
 Date:   Thu Jul 24 02:07:21 2025 +0700

@@ -80,8 +80,6 @@ Options:
   -V, --version            Print version
 ```
 
-Вот улучшенный README.md с подробной технической спецификацией и профессиональным оформлением:
-
 ## Features
 
 - **Dual-source documentation**: Access both man pages and tldr cheatsheets
