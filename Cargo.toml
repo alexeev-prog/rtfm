@@ -9,4 +9,4 @@ tui = "0.19.0"
 crossterm = "0.29.0"
 anyhow = "1.0.75"
 tokio = { version = "1.46", features = ["full"] }
-regex = "1.10.2"
+regex = "1.11.3"
