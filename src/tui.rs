@@ -6,17 +6,17 @@ use crossterm::{
         KeyModifiers,
     },
     execute,
-    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
+    terminal::{EnterAlternateScreen, LeaveAlternateScreen, disable_raw_mode, enable_raw_mode},
 };
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 use tui::{
+    Terminal,
     backend::CrosstermBackend,
     layout::{Constraint, Direction, Layout, Rect},
     style::{Color, Modifier, Style},
     text::{Span, Spans},
     widgets::{Block, Borders, List, ListItem, ListState, Paragraph, Wrap},
-    Terminal,
 };
 
 const PAGE_SIZE: usize = 30;
@@ -352,9 +352,7 @@ fn handle_man_page_keys(app: &mut AppState, key: KeyEvent) {
         KeyCode::Up => app.man_page.scroll = app.man_page.scroll.saturating_sub(1),
         KeyCode::Down => app.man_page.scroll = app.man_page.scroll.saturating_add(1),
         KeyCode::Home => app.man_page.scroll = 0,
-        KeyCode::End => {
-            app.man_page.scroll = app.man_page.content.len().saturating_sub(PAGE_SIZE)
-        }
+        KeyCode::End => app.man_page.scroll = app.man_page.content.len().saturating_sub(PAGE_SIZE),
         KeyCode::PageUp => app.man_page.scroll = app.man_page.scroll.saturating_sub(PAGE_SIZE),
         KeyCode::PageDown => {
             app.man_page.scroll = (app.man_page.scroll + PAGE_SIZE)
@@ -445,7 +443,7 @@ fn render_ui<B: tui::backend::Backend>(f: &mut tui::Frame<B>, app: &mut AppState
                 Constraint::Length(3),
                 Constraint::Min(10),
             ]
-                .as_ref(),
+            .as_ref(),
         )
         .split(f.size());
 
@@ -463,16 +461,14 @@ fn render_status_bar<B: tui::backend::Backend>(f: &mut tui::Frame<B>, app: &AppS
     let status = if app.loading {
         format!("Loading {source_label}...")
     } else {
-        let x = &*format!(
-            "RTFM // {source_label} PAGE [Tab:Switch /:Search t:Toggle Home/End]"
-        );
+        let x = &*format!("RTFM // {source_label} PAGE [Tab:Switch /:Search t:Toggle Home/End]");
         match app.focus {
             Focus::CommandList => "RTFM // COMMAND LIST [Tab:Switch Home/End]",
             Focus::ManPage => x,
             Focus::Search => "RTFM // SEARCH MODE [Enter:Apply Esc:Cancel]",
         }
-            .parse()
-            .unwrap()
+        .parse()
+        .unwrap()
     };
 
     let status_bar = Paragraph::new(status)

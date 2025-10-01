@@ -194,7 +194,7 @@ impl ManDb {
 #[cfg(test)]
 mod man_db_tests {
     use super::*;
-    
+
     use tokio::runtime::Runtime;
 
     #[test]

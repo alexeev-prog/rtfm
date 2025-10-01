@@ -51,7 +51,7 @@ fn main() -> Result<()> {
 
 #[cfg(test)]
 mod cli_tests {
-    
+
     use std::process::Command;
 
     #[test]
